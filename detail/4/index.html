@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+
+
+<html>
+
+<head>
+    <meta charset = "UTF-8">
+    
+    <title> Hellc </title>
+    
+    <link rel = "stylesheet" type = "text/css" href = "http://0.0.0.0:8000/detail/4/doNotExist.css" />
+    <link rel = "stylesheet" type = "text/css" href = "../../static/css/parts/header.css" />
+    <link rel = "stylesheet" type = "text/css" href = "../../static/css/parts/sidebar.css" />
+    <link rel = "stylesheet" type = "text/css" href = "../../static/css/parts/main.css" />
+    <link rel = "stylesheet" type = "text/css" href = "../../static/css/parts/footer.css" />
+
+    
+
+<link rel = "stylesheet" type = "text/css" href = "../../static/css/article-detail.css" />
+
+
+</head>
+
+<body>
+
+
+
+<header id = "PageHeader">
+
+    <div id = "BlogHeader">
+        <div id = "BlogImgLogo">
+            <img src = "../../static/img/HellcLogo.jpg" alt = "Hellc"/>
+        </div>
+        
+        <div id = "BlogTextLogo">
+            <div id = "BlogName">
+                <h1> Hellc </h1>
+            </div>
+            
+            <div id = "BlogMotto">
+                <h2> Fly in the blue and free sky. </h2>
+            </div>
+        </div>
+        
+    </div>
+
+    <nav id = "BlogNav">
+        <ul>
+            <li>
+                <a href = "../../index.html" class = "NavLink"> Home </a>
+            </li>
+
+            <li>
+                <a href = "index.html#" class = "NavLink"> Tags </a>
+            </li>
+
+            <li> 
+                <a href = "index.html#" class = "NavLink"> Archive </a>
+            </li>
+
+            <li>
+                <a href = "index.html#" class = "NavLink"> Friends </a>
+            </li>
+
+            <li>
+                <a href = "index.html#" class = "NavLink"> About </a>
+            </li>
+        </ul>
+    </nav>
+
+</header>
+
+
+<div id = "Content">
+    <div id = Wrapper>
+        
+<article class = "Article">
+    
+    <header class = "ArticleHeader">
+        <div class = "Title">
+            <a href = "index.html#">
+                <h2> Article for testing markdown </h2>
+            </a>
+        </div>
+    </header>
+    
+    <div class = "ArticleBody">
+        <h1>标题</h1>
+<p><em>斜体</em></p>
+<p><strong>粗体</strong></p>
+<p>链接：<a href="http://0.0.0.0:8000/detail/4/5261.github.io">Hellc</a></p>
+<ul>
+<li>a</li>
+<li>b</li>
+<li>
+<p>c</p>
+</li>
+<li>
+<p>One</p>
+</li>
+<li>Two</li>
+<li>Three</li>
+</ul>
+<blockquote>
+<p>引用</p>
+</blockquote>
+<p>行内代码 <code>html</code></p>
+<p><code>codes</code></p>
+<p>latex?
+$
+\sum_{i = 0}^{n}a_i
+$</p>
+    </div>
+    
+    <footer class = "ArticleFooter">
+        
+    </footer>
+    
+</article>
+
+<div class = "comment">
+    <div class = "comment-display" style = "padding-top: 20px;">
+        <h3> Comments </h3>
+        
+    </div>
+    
+    <div class  ="comment-post">
+        <h3> Make a comment </h3>
+        <form action = "index.html" method = "post">
+            <input type='hidden' name='csrfmiddlewaretoken' value='Jtc7nbjAQwjieneVNlEKiPi89UdblfjOJ1nw3mntcL7w8IQ203BIxGxYrr7dBMJQ' />
+            
+                <div class = "input-feild" style = "padding-top: 10px;">
+                    Name : <input id="id_name" maxlength="16" name="name" type="text" required />
+                </div>
+                <div class = "error">
+                    
+                </div>
+            
+                <div class = "input-feild" style = "padding-top: 10px;">
+                    Email : <input id="id_email" name="email" type="email" required />
+                </div>
+                <div class = "error">
+                    
+                </div>
+            
+                <div class = "input-feild" style = "padding-top: 10px;">
+                    Content : <input id="id_content" name="content" type="text" required />
+                </div>
+                <div class = "error">
+                    
+                </div>
+            
+            <button type = "submit" style = "margin-top: 10px"> Submit </button>
+        </form>
+    </div>
+</div>
+
+
+    </div>
+    <aside id = "Sidebar">
+    <div id = "Tags">
+        <h3 class = "Title">
+            Tags
+        </h3>
+
+        
+        <div class = "EachTag">
+            <a href = "../../tag/Test/index.html"> Test </a>
+        </div>
+        
+        <div class = "EachTag">
+            <a href = "../../tag/Starting/index.html"> Starting </a>
+        </div>
+        
+    </div>
+    
+    <div id = "FriendLinks">
+        <h3 class = "Title">
+            Friends
+        </h3>
+        
+        
+        <div class = "EachFriendLink">
+            <a href = "https://5261.github.io" target = "_blank"> Hellc </a>
+        </div>
+        
+    </div>
+</aside>
+
+</div>
+
+<footer id = "PageFooter">
+    <hr/>
+    <p> Copyright &copy; Hellc 2016. All rights reserved. </p>
+</footer>
+
+</body>
+
+</html>

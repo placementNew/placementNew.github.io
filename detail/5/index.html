@@ -9,16 +9,17 @@
     
     <title> Hellc </title>
     
-    <link rel = "stylesheet" type = "text/css" href = "doNotExist.css" /> <!-- I don't kown why the first css will be lost, but I can only add a empty one. -->
-    <link rel = "stylesheet" type = "text/css" href = "static/css/parts/header.css" />
-    <link rel = "stylesheet" type = "text/css" href = "static/css/parts/sidebar.css" />
-    <link rel = "stylesheet" type = "text/css" href = "static/css/parts/main.css" />
-    <link rel = "stylesheet" type = "text/css" href = "static/css/parts/footer.css" />
+    <link rel = "stylesheet" type = "text/css" href = "http://0.0.0.0:8000/detail/5/doNotExist.css" /> <!-- I don't kown why the first css will be lost, but I can only add a empty one. -->
+    <link rel = "stylesheet" type = "text/css" href = "../../static/css/parts/header.css" />
+    <link rel = "stylesheet" type = "text/css" href = "../../static/css/parts/sidebar.css" />
+    <link rel = "stylesheet" type = "text/css" href = "../../static/css/parts/main.css" />
+    <link rel = "stylesheet" type = "text/css" href = "../../static/css/parts/footer.css" />
 
     
 
-<link rel = "stylesheet" type = "text/css" href = "static/css/article-list.css" />
-<link rel = "stylesheet" type = "text/css" href = "static/css/parts/markdown.css">
+<link rel = "stylesheet" type = "text/css" href = "../../static/css/article-detail.css" />
+<link rel = "stylesheet" type = "text/css" href = "../../static/css/parts/markdown.css" />
+<link rel = "stylesheet" type = "text/css" href = "../../static/css/parts/highlight.css" />
 
 
 </head>
@@ -31,7 +32,7 @@
 
     <div id = "BlogHeader">
         <div id = "BlogImgLogo">
-            <img src = "static/img/HellcLogo.jpg" alt = "Hellc"/>
+            <img src = "../../static/img/HellcLogo.jpg" alt = "Hellc"/>
         </div>
         
         <div id = "BlogTextLogo">
@@ -49,7 +50,7 @@
     <nav id = "BlogNav">
         <ul>
             <li>
-                <a href = "index.html" class = "NavLink"> Home </a>
+                <a href = "../../index.html" class = "NavLink"> Home </a>
             </li>
 
             <li>
@@ -76,36 +77,18 @@
 <div id = "Content">
     <div id = Wrapper>
         
-
-<div id = "Articles">
+<article class = "Article">
     
-    <article class = "Article">
-        <header class = "ArticleHeader">
-            <div class = "Title">
-                <h1>
-                    <a href = "detail/5/index.html">
-                        永无乡 - 平衡树 + 并查集 + 启发式合并
-                    </a>
-                </h1>
-            </div>
-        
-            <div class = "Info">
-                <span class = "Category">
-                    OI
-                </span>
-        
-                <span class = "Author">
-                    Hellc
-                </span>
-        
-                <span class = "CreateTime">
-                    2016-10-18 10:11
-                </span>
-            </div>
-        </header>
+    <header class = "ArticleHeader">
+        <div class = "Title">
+            <a href = "index.html#">
+                <h2> 永无乡 - 平衡树 + 并查集 + 启发式合并 </h2>
+            </a>
+        </div>
+    </header>
     
-        <div class = "Summary Markdown">
-            <h3>【题目描述】</h3>
+    <div class = "ArticleBody Markdown">
+        <h3>【题目描述】</h3>
 <p>永无乡包含 n 座岛，编号从 1 到 n，每座岛都有自己的独一无二的重要度，按照重要度可 以将这 n 座岛排名，名次用 1 到 n 来表示。</p>
 <p>某些岛之间由巨大的桥连接，通过桥可以从一个岛 到达另一个岛。如果从岛 a 出发经过若干座（含 0 座）桥可以到达岛 b，则称岛 a 和岛 b 是连 通的。</p>
 <p>现在有两种操作：</p>
@@ -355,116 +338,20 @@
 <span class="p">}</span>
 </pre></div>
 
+    </div>
+    
+    <footer class = "ArticleFooter">
+        <div class = "Tags">
+            Tags: 
+            
+            <span class = "EachTag">
+                <a href = "../../tag/OI/index.html"> OI </a>
+            </span>
+            
         </div>
-        
-        <footer class = "ArticleFooter">
-            <a href = "detail/5/index.html" class = "ReadMore"> Read More </a>
-        </footer>
-    </article>
+    </footer>
     
-    <article class = "Article">
-        <header class = "ArticleHeader">
-            <div class = "Title">
-                <h1>
-                    <a href = "detail/4/index.html">
-                        Article for testing markdown
-                    </a>
-                </h1>
-            </div>
-        
-            <div class = "Info">
-                <span class = "Category">
-                    Cate1
-                </span>
-        
-                <span class = "Author">
-                    Hellc
-                </span>
-        
-                <span class = "CreateTime">
-                    2016-10-03 04:47
-                </span>
-            </div>
-        </header>
-    
-        <div class = "Summary Markdown">
-            <h1>1级标题</h1>
-<h2>1级标题</h2>
-<h3>3级标题</h3>
-<h4>4级标题</h4>
-<h5>5级标题</h5>
-<h6>6级标题</h6>
-<p><em>斜体</em></p>
-<p><strong>粗体</strong></p>
-<p>链接：<a href="https://5261.github.io">Hellc</a></p>
-<p>无序表</p>
-<ul>
-<li>a</li>
-<li>b</li>
-<li>c</li>
-</ul>
-<blockquote><p>引用</p>
-</blockquote>
-<p>行内代码 <code>html</code></p>
-<p>长代码</p>
-
-<pre><code>#include &lt;iostream&gt;
-int main(){
-    std::cout &lt;&lt; "Hello, world" &lt;&lt; std::endl;
-    return 0;
-}
-
-</code></pre>
-<hr>
-<p>latex?
-$
-\sum_{i = 0}^{n}a_i
-$</p>
-
-        </div>
-        
-        <footer class = "ArticleFooter">
-            <a href = "detail/4/index.html" class = "ReadMore"> Read More </a>
-        </footer>
-    </article>
-    
-    <article class = "Article">
-        <header class = "ArticleHeader">
-            <div class = "Title">
-                <h1>
-                    <a href = "detail/1/index.html">
-                        Hello, Django
-                    </a>
-                </h1>
-            </div>
-        
-            <div class = "Info">
-                <span class = "Category">
-                    Test
-                </span>
-        
-                <span class = "Author">
-                    Hellc
-                </span>
-        
-                <span class = "CreateTime">
-                    2016-08-05 02:50
-                </span>
-            </div>
-        </header>
-    
-        <div class = "Summary Markdown">
-            <p>This is a test!</p>
-
-        </div>
-        
-        <footer class = "ArticleFooter">
-            <a href = "detail/1/index.html" class = "ReadMore"> Read More </a>
-        </footer>
-    </article>
-    
-</div>
-
+</article>
 
     </div>
     <aside id = "Sidebar">
@@ -475,15 +362,15 @@ $</p>
 
         
         <div class = "EachTag">
-            <a href = "tag/Test/index.html"> Test </a>
+            <a href = "../../tag/Test/index.html"> Test </a>
         </div>
         
         <div class = "EachTag">
-            <a href = "tag/Starting/index.html"> Starting </a>
+            <a href = "../../tag/Starting/index.html"> Starting </a>
         </div>
         
         <div class = "EachTag">
-            <a href = "tag/OI/index.html"> OI </a>
+            <a href = "../../tag/OI/index.html"> OI </a>
         </div>
         
     </div>

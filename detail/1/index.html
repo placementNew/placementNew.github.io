@@ -9,7 +9,7 @@
     
     <title> Hellc </title>
     
-    <link rel = "stylesheet" type = "text/css" href = "http://0.0.0.0:8000/detail/1/doNotExist.css" /> <!-- I don't kown why the first css will be lost, but I can only add a empty one. -->
+    <link rel = "stylesheet" type = "text/css" href = "doNotExist.css" /> <!-- I don't kown why the first css will be lost, but I can only add a empty one. -->
     <link rel = "stylesheet" type = "text/css" href = "../../static/css/parts/header.css" />
     <link rel = "stylesheet" type = "text/css" href = "../../static/css/parts/sidebar.css" />
     <link rel = "stylesheet" type = "text/css" href = "../../static/css/parts/main.css" />
@@ -18,6 +18,8 @@
     
 
 <link rel = "stylesheet" type = "text/css" href = "../../static/css/article-detail.css" />
+<link rel = "stylesheet" type = "text/css" href = "../../static/css/parts/markdown.css" />
+<link rel = "stylesheet" type = "text/css" href = "../../static/css/parts/highlight.css" />
 
 
 </head>
@@ -85,117 +87,27 @@
         </div>
     </header>
     
-    <div class = "ArticleBody">
+    <div class = "ArticleBody Markdown">
         <p>This is a test!</p>
+
     </div>
     
     <footer class = "ArticleFooter">
-        
+        <div class = "Tags">
+            Tags: 
+            
+            <span class = "EachTag">
+                <a href = "../../tag/Test/index.html"> Test </a>
+            </span>
+            
+            <span class = "EachTag">
+                <a href = "../../tag/Starting/index.html"> Starting </a>
+            </span>
+            
+        </div>
     </footer>
     
 </article>
-
-<div class = "comment">
-    <div class = "comment-display" style = "padding-top: 20px;">
-        <h3> Comments </h3>
-        
-            <div class = "comment-field" style = "padding-top: 10px;">
-                Test said: "This is a comment."
-            </div>
-        
-            <div class = "comment-field" style = "padding-top: 10px;">
-                Edge said: "666"
-            </div>
-        
-            <div class = "comment-field" style = "padding-top: 10px;">
-                Hellc5261 said: "233"
-            </div>
-        
-            <div class = "comment-field" style = "padding-top: 10px;">
-                Hellc said: "Hello"
-            </div>
-        
-            <div class = "comment-field" style = "padding-top: 10px;">
-                Hellc said: "Hello"
-            </div>
-        
-            <div class = "comment-field" style = "padding-top: 10px;">
-                Hellc said: "Hello"
-            </div>
-        
-            <div class = "comment-field" style = "padding-top: 10px;">
-                Hellc said: "Hello"
-            </div>
-        
-            <div class = "comment-field" style = "padding-top: 10px;">
-                Hellc said: "Hello"
-            </div>
-        
-            <div class = "comment-field" style = "padding-top: 10px;">
-                Hellc said: "Hello"
-            </div>
-        
-            <div class = "comment-field" style = "padding-top: 10px;">
-                Hellc said: "Hi"
-            </div>
-        
-            <div class = "comment-field" style = "padding-top: 10px;">
-                Hellc said: "Can I make a comment?"
-            </div>
-        
-            <div class = "comment-field" style = "padding-top: 10px;">
-                5261 said: "I don&#39;t know how to del a comment!"
-            </div>
-        
-            <div class = "comment-field" style = "padding-top: 10px;">
-                5261 said: "I don&#39;t know how to del a comment!"
-            </div>
-        
-            <div class = "comment-field" style = "padding-top: 10px;">
-                5261 said: "I don&#39;t know how to del a comment!"
-            </div>
-        
-            <div class = "comment-field" style = "padding-top: 10px;">
-                5261 said: "Another Test"
-            </div>
-        
-            <div class = "comment-field" style = "padding-top: 10px;">
-                Hellc said: "Hello, Comments!"
-            </div>
-        
-    </div>
-    
-    <div class  ="comment-post">
-        <h3> Make a comment </h3>
-        <form action = "index.html" method = "post">
-            <input type='hidden' name='csrfmiddlewaretoken' value='Xh9MWq8B2QYQYF7dMoMMfuGSdcLP3lsraapC1ERdZqNKe5nEh7hxl6ufu8fXenBx' />
-            
-                <div class = "input-feild" style = "padding-top: 10px;">
-                    Name : <input id="id_name" maxlength="16" name="name" type="text" required />
-                </div>
-                <div class = "error">
-                    
-                </div>
-            
-                <div class = "input-feild" style = "padding-top: 10px;">
-                    Email : <input id="id_email" name="email" type="email" required />
-                </div>
-                <div class = "error">
-                    
-                </div>
-            
-                <div class = "input-feild" style = "padding-top: 10px;">
-                    Content : <input id="id_content" name="content" type="text" required />
-                </div>
-                <div class = "error">
-                    
-                </div>
-            
-            <button type = "submit" style = "margin-top: 10px"> Submit </button>
-        </form>
-    </div>
-</div>
-
 
     </div>
     <aside id = "Sidebar">
@@ -213,6 +125,10 @@
             <a href = "../../tag/Starting/index.html"> Starting </a>
         </div>
         
+        <div class = "EachTag">
+            <a href = "../../tag/OI/index.html"> OI </a>
+        </div>
+        
     </div>
     
     <div id = "FriendLinks">
@@ -223,6 +139,10 @@
         
         <div class = "EachFriendLink">
             <a href = "https://5261.github.io" target = "_blank"> Hellc </a>
+        </div>
+        
+        <div class = "EachFriendLink">
+            <a href = "http://notebook.myforesight.xyz/" target = "_blank"> SchrodingerZhu </a>
         </div>
         
     </div>

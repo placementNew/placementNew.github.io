@@ -18,6 +18,8 @@
     
 
 <link rel = "stylesheet" type = "text/css" href = "../../static/css/article-detail.css" />
+<link rel = "stylesheet" type = "text/css" href = "../../static/css/parts/markdown.css" />
+<link rel = "stylesheet" type = "text/css" href = "../../static/css/parts/highlight.css" />
 
 
 </head>
@@ -85,77 +87,54 @@
         </div>
     </header>
     
-    <div class = "ArticleBody">
-        <h1>标题</h1>
+    <div class = "ArticleBody Markdown">
+        <h1>1级标题</h1>
+<h2>1级标题</h2>
+<h3>3级标题</h3>
+<h4>4级标题</h4>
+<h5>5级标题</h5>
+<h6>6级标题</h6>
 <p><em>斜体</em></p>
 <p><strong>粗体</strong></p>
 <p>链接：<a href="https://5261.github.io">Hellc</a></p>
+<p>无序表</p>
 <ul>
 <li>a</li>
 <li>b</li>
-<li>
-<p>c</p>
-</li>
-<li>
-<p>One</p>
-</li>
-<li>Two</li>
-<li>Three</li>
+<li>c</li>
 </ul>
-<blockquote>
-<p>引用</p>
+<blockquote><p>引用</p>
 </blockquote>
 <p>行内代码 <code>html</code></p>
-<p><code>codes</code></p>
+<p>长代码</p>
+
+<pre><code>#include &lt;iostream&gt;
+int main(){
+    std::cout &lt;&lt; "Hello, world" &lt;&lt; std::endl;
+    return 0;
+}
+
+</code></pre>
+<hr>
 <p>latex?
 $
 \sum_{i = 0}^{n}a_i
 $</p>
+
     </div>
     
     <footer class = "ArticleFooter">
-        
+        <div class = "Tags">
+            Tags: 
+            
+            <span class = "EachTag">
+                <a href = "../../tag/Test/index.html"> Test </a>
+            </span>
+            
+        </div>
     </footer>
     
 </article>
-
-<div class = "comment">
-    <div class = "comment-display" style = "padding-top: 20px;">
-        <h3> Comments </h3>
-        
-    </div>
-    
-    <div class  ="comment-post">
-        <h3> Make a comment </h3>
-        <form action = "index.html" method = "post">
-            <input type='hidden' name='csrfmiddlewaretoken' value='hRDkMYlTwKeXmfgqCFfcjdbwxKCCEfh4uKTaRc4vtk3RCFwR7oKXpPZTOG6KPhqa' />
-            
-                <div class = "input-feild" style = "padding-top: 10px;">
-                    Name : <input id="id_name" maxlength="16" name="name" type="text" required />
-                </div>
-                <div class = "error">
-                    
-                </div>
-            
-                <div class = "input-feild" style = "padding-top: 10px;">
-                    Email : <input id="id_email" name="email" type="email" required />
-                </div>
-                <div class = "error">
-                    
-                </div>
-            
-                <div class = "input-feild" style = "padding-top: 10px;">
-                    Content : <input id="id_content" name="content" type="text" required />
-                </div>
-                <div class = "error">
-                    
-                </div>
-            
-            <button type = "submit" style = "margin-top: 10px"> Submit </button>
-        </form>
-    </div>
-</div>
-
 
     </div>
     <aside id = "Sidebar">
@@ -173,6 +152,10 @@ $</p>
             <a href = "../../tag/Starting/index.html"> Starting </a>
         </div>
         
+        <div class = "EachTag">
+            <a href = "../../tag/OI/index.html"> OI </a>
+        </div>
+        
     </div>
     
     <div id = "FriendLinks">
@@ -183,6 +166,10 @@ $</p>
         
         <div class = "EachFriendLink">
             <a href = "https://5261.github.io" target = "_blank"> Hellc </a>
+        </div>
+        
+        <div class = "EachFriendLink">
+            <a href = "http://notebook.myforesight.xyz/" target = "_blank"> SchrodingerZhu </a>
         </div>
         
     </div>

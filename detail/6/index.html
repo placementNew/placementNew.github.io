@@ -16,10 +16,19 @@
     <link rel = "stylesheet" type = "text/css" href = "/static/css/parts/footer.css" />
 
     
-    <link rel = "stylesheet" type = "text/css" href = "/static/css/article-list-of-oneTag.css" />
+
+<link rel = "stylesheet" type = "text/css" href = "/static/css/article-detail.css" />
+<link rel = "stylesheet" type = "text/css" href = "/static/css/parts/markdown.css" />
+<link rel = "stylesheet" type = "text/css" href = "/static/css/parts/highlight.css" />
+
 
     
-     
+    
+
+<script type = "text/javascript" src = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type = "text/x-mathjax-config"> MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+
+
 </head>
 
 <body>
@@ -75,17 +84,34 @@
 <div id = "Content">
     <div id = Wrapper>
         
-
-<div id = "Articles">
+<article class = "Article">
     
-    <div class = "ArticleItem">
-        <a href = "/detail/5/" target = "_blank">
-            永无乡 - 平衡树 + 并查集 + 启发式合并
-        </a>
+    <header class = "ArticleHeader">
+        <div class = "Title">
+            <a href = "#">
+                <h2> MathJax Test </h2>
+            </a>
+        </div>
+    </header>
+    
+    <div class = "ArticleBody Markdown">
+        <p>行内 $ f_i = f_{i - 1} + f_{i - 2} $ 公式</p>
+<p>$$ \sum_{i = 1}^n a_i = a_1 + a_2 + \dots + a_n $$</p>
+
     </div>
     
-</div>
-
+    <footer class = "ArticleFooter">
+        <div class = "Tags">
+            Tags: 
+            
+            <span class = "EachTag">
+                <a href = "/tag/Test/"> Test </a>
+            </span>
+            
+        </div>
+    </footer>
+    
+</article>
 
     </div>
     <aside id = "Sidebar">

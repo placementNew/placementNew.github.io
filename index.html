@@ -10,15 +10,23 @@
     <title> Hellc </title>
     
     <link rel = "stylesheet" type = "text/css" href = "doNotExist.css" /> <!-- I don't kown why the first css will be lost, but I can only add a empty one. -->
-    <link rel = "stylesheet" type = "text/css" href = "static/css/parts/header.css" />
-    <link rel = "stylesheet" type = "text/css" href = "static/css/parts/sidebar.css" />
-    <link rel = "stylesheet" type = "text/css" href = "static/css/parts/main.css" />
-    <link rel = "stylesheet" type = "text/css" href = "static/css/parts/footer.css" />
+    <link rel = "stylesheet" type = "text/css" href = "/static/css/parts/header.css" />
+    <link rel = "stylesheet" type = "text/css" href = "/static/css/parts/sidebar.css" />
+    <link rel = "stylesheet" type = "text/css" href = "/static/css/parts/main.css" />
+    <link rel = "stylesheet" type = "text/css" href = "/static/css/parts/footer.css" />
 
     
 
-<link rel = "stylesheet" type = "text/css" href = "static/css/article-list.css" />
-<link rel = "stylesheet" type = "text/css" href = "static/css/parts/markdown.css">
+<link rel = "stylesheet" type = "text/css" href = "/static/css/article-list.css" />
+<link rel = "stylesheet" type = "text/css" href = "/static/css/parts/markdown.css" />
+<link rel = "stylesheet" type = "text/css" href = "/static/css/parts/highlight.css" />
+
+
+    
+    
+
+<script type = "text/javascript" src = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type = "text/x-mathjax-config"> MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
 
 
 </head>
@@ -31,7 +39,7 @@
 
     <div id = "BlogHeader">
         <div id = "BlogImgLogo">
-            <img src = "static/img/HellcLogo.jpg" alt = "Hellc"/>
+            <img src = "/static/img/HellcLogo.jpg" alt = "Hellc"/>
         </div>
         
         <div id = "BlogTextLogo">
@@ -49,23 +57,23 @@
     <nav id = "BlogNav">
         <ul>
             <li>
-                <a href = "index.html" class = "NavLink"> Home </a>
+                <a href = "/" class = "NavLink"> Home </a>
             </li>
 
             <li>
-                <a href = "index.html#" class = "NavLink"> Tags </a>
+                <a href = "#" class = "NavLink"> Tags </a>
             </li>
 
             <li> 
-                <a href = "index.html#" class = "NavLink"> Archive </a>
+                <a href = "#" class = "NavLink"> Archive </a>
             </li>
 
             <li>
-                <a href = "index.html#" class = "NavLink"> Friends </a>
+                <a href = "#" class = "NavLink"> Friends </a>
             </li>
 
             <li>
-                <a href = "index.html#" class = "NavLink"> About </a>
+                <a href = "#" class = "NavLink"> About </a>
             </li>
         </ul>
     </nav>
@@ -83,7 +91,43 @@
         <header class = "ArticleHeader">
             <div class = "Title">
                 <h1>
-                    <a href = "detail/5/index.html">
+                    <a href = "/detail/6/">
+                        MathJax Test
+                    </a>
+                </h1>
+            </div>
+        
+            <div class = "Info">
+                <span class = "Category">
+                    Test
+                </span>
+        
+                <span class = "Author">
+                    Hellc
+                </span>
+        
+                <span class = "CreateTime">
+                    2016-10-19 06:35
+                </span>
+            </div>
+        </header>
+    
+        <div class = "Summary Markdown">
+            <p>行内 $ f_i = f_{i - 1} + f_{i - 2} $ 公式</p>
+<p>$$ \sum_{i = 1}^n a_i = a_1 + a_2 + \dots + a_n $$</p>
+
+        </div>
+        
+        <footer class = "ArticleFooter">
+            <a href = "/detail/6/" class = "ReadMore"> Read More </a>
+        </footer>
+    </article>
+    
+    <article class = "Article">
+        <header class = "ArticleHeader">
+            <div class = "Title">
+                <h1>
+                    <a href = "/detail/5/">
                         永无乡 - 平衡树 + 并查集 + 启发式合并
                     </a>
                 </h1>
@@ -117,248 +161,11 @@
 </ul>
 <h3>【题目链接】</h3>
 <p><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=2733">BZOJ 2377</a> 永无乡 【HNOI2012】</p>
-<!--more-->
-
-<h3>【解题思路】</h3>
-<p>连通性可以用并查集维护。</p>
-<p>查第 k 小可以用某些数据结构维护，这里我选择了平衡树。</p>
-<p>现在的主要问题是，当我们合并两个集合时，如何快速合并对应的平衡树。</p>
-<p>然而并不需要什么快速合并，我们每次直接把小的那颗暴力合并到大的那颗上即可。</p>
-<p>复杂度保证？每个元素被转移后，所在树大小至少翻倍，故每个元素至多被转移 $O(logn)$ 次，每次转移是 $O(logn)$ 的，所以复杂度至多是 $O(nlog^2n)$的。</p>
-<h3>【AC代码】</h3>
-<p>平衡树写了旋转式 <code>Treap</code>。</p>
-<p>注意数据有坑，有一行为 <code>0 0</code>，属于非法数据，忽略即可。</p>
-<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;cstdlib&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;queue&gt;</span><span class="cp"></span>
-
-<span class="k">typedef</span> <span class="kt">int</span> <span class="n">Rel</span><span class="p">;</span>
-<span class="k">const</span> <span class="kt">int</span> <span class="n">L</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Item</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">Treap</span><span class="p">{</span>
-    <span class="k">struct</span> <span class="n">Node</span><span class="p">{</span>
-        <span class="n">Item</span> <span class="n">value</span><span class="p">;</span>
-        <span class="kt">int</span> <span class="n">fix</span><span class="p">;</span>
-        <span class="n">Node</span> <span class="o">*</span><span class="n">child</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
-
-        <span class="kt">int</span> <span class="n">size</span><span class="p">;</span>
-
-        <span class="n">Node</span><span class="p">(</span><span class="k">const</span> <span class="n">Item</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">){</span>
-            <span class="n">value</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
-            <span class="n">child</span><span class="p">[</span><span class="n">L</span><span class="p">]</span> <span class="o">=</span> <span class="n">child</span><span class="p">[</span><span class="n">R</span><span class="p">]</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-            <span class="n">fix</span> <span class="o">=</span> <span class="n">rand</span><span class="p">();</span>
-            <span class="n">size</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-        <span class="p">}</span>
-
-        <span class="o">~</span><span class="n">Node</span><span class="p">(){</span>
-            <span class="k">if</span><span class="p">(</span><span class="n">child</span><span class="p">[</span><span class="n">L</span><span class="p">])</span> <span class="k">delete</span> <span class="n">child</span><span class="p">[</span><span class="n">L</span><span class="p">];</span>
-            <span class="k">if</span><span class="p">(</span><span class="n">child</span><span class="p">[</span><span class="n">R</span><span class="p">])</span> <span class="k">delete</span> <span class="n">child</span><span class="p">[</span><span class="n">R</span><span class="p">];</span>
-        <span class="p">}</span>
-
-        <span class="kr">inline</span> <span class="kt">int</span> <span class="n">lsize</span><span class="p">(){</span>
-            <span class="k">return</span> <span class="n">child</span><span class="p">[</span><span class="n">L</span><span class="p">]</span> <span class="o">?</span> <span class="n">child</span><span class="p">[</span><span class="n">L</span><span class="p">]</span><span class="o">-&gt;</span><span class="nl">size</span> <span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="p">}</span>
-
-        <span class="kr">inline</span> <span class="kt">int</span> <span class="n">rsize</span><span class="p">(){</span>
-            <span class="k">return</span> <span class="n">child</span><span class="p">[</span><span class="n">R</span><span class="p">]</span> <span class="o">?</span> <span class="n">child</span><span class="p">[</span><span class="n">R</span><span class="p">]</span><span class="o">-&gt;</span><span class="nl">size</span> <span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="p">}</span>
-
-        <span class="kr">inline</span> <span class="kt">void</span> <span class="n">update</span><span class="p">(){</span>
-            <span class="n">size</span> <span class="o">=</span> <span class="n">lsize</span><span class="p">()</span> <span class="o">+</span> <span class="n">rsize</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-        <span class="p">}</span>
-
-        <span class="kr">inline</span> <span class="n">Rel</span> <span class="n">comp</span><span class="p">(</span><span class="k">const</span> <span class="n">Item</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">){</span>
-            <span class="k">return</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">value</span> <span class="o">?</span> <span class="nl">L</span> <span class="p">:</span> <span class="n">R</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span> <span class="o">*</span><span class="n">root</span><span class="p">;</span>
-
-    <span class="n">Treap</span><span class="p">(){</span>
-        <span class="n">root</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-        <span class="n">srand</span><span class="p">(</span><span class="mi">19991205</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="o">~</span><span class="n">Treap</span><span class="p">(){</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">root</span><span class="p">)</span> <span class="k">delete</span> <span class="n">root</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="kt">void</span> <span class="n">rotate</span><span class="p">(</span><span class="n">Node</span> <span class="o">*&amp;</span><span class="n">v</span><span class="p">,</span> <span class="n">Rel</span> <span class="n">d</span><span class="p">){</span>
-        <span class="n">Node</span> <span class="o">*</span><span class="n">k</span> <span class="o">=</span> <span class="n">v</span><span class="o">-&gt;</span><span class="n">child</span><span class="p">[</span><span class="n">d</span> <span class="o">^</span> <span class="mi">1</span><span class="p">];</span>
-        <span class="n">v</span><span class="o">-&gt;</span><span class="n">child</span><span class="p">[</span><span class="n">d</span> <span class="o">^</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">k</span><span class="o">-&gt;</span><span class="n">child</span><span class="p">[</span><span class="n">d</span><span class="p">];</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="n">k</span><span class="o">-&gt;</span><span class="n">child</span><span class="p">[</span><span class="n">d</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">;</span>
-        <span class="n">v</span><span class="o">-&gt;</span><span class="n">update</span><span class="p">(),</span> <span class="n">k</span><span class="o">-&gt;</span><span class="n">update</span><span class="p">();</span>
-        <span class="n">v</span> <span class="o">=</span> <span class="n">k</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="kt">void</span> <span class="n">insert</span><span class="p">(</span><span class="n">Node</span> <span class="o">*&amp;</span> <span class="n">v</span><span class="p">,</span> <span class="n">Node</span> <span class="o">*</span><span class="n">node</span><span class="p">){</span>
-        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">v</span><span class="p">)</span> <span class="n">v</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
-        <span class="k">else</span><span class="p">{</span>
-            <span class="n">Rel</span> <span class="n">d</span> <span class="o">=</span> <span class="n">v</span><span class="o">-&gt;</span><span class="n">comp</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">);</span>
-            <span class="n">insert</span><span class="p">(</span><span class="n">v</span><span class="o">-&gt;</span><span class="n">child</span><span class="p">[</span><span class="n">d</span><span class="p">],</span> <span class="n">node</span><span class="p">);</span>
-            <span class="k">if</span><span class="p">(</span><span class="n">v</span><span class="o">-&gt;</span><span class="n">child</span><span class="p">[</span><span class="n">d</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">fix</span> <span class="o">&lt;</span> <span class="n">v</span><span class="o">-&gt;</span><span class="n">fix</span><span class="p">)</span> <span class="n">rotate</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">d</span> <span class="o">^</span> <span class="mi">1</span><span class="p">);</span>   
-        <span class="p">}</span> 
-        <span class="n">v</span><span class="o">-&gt;</span><span class="n">update</span><span class="p">();</span>
-    <span class="p">}</span>
-
-    <span class="n">Item</span> <span class="n">select</span><span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="p">){</span>
-        <span class="n">Node</span> <span class="o">*</span><span class="n">v</span> <span class="o">=</span> <span class="n">root</span><span class="p">;</span>
-        <span class="k">while</span><span class="p">(</span><span class="mi">5261</span><span class="p">){</span>
-            <span class="k">if</span><span class="p">(</span><span class="n">k</span> <span class="o">==</span> <span class="n">v</span><span class="o">-&gt;</span><span class="n">lsize</span><span class="p">())</span> <span class="k">return</span> <span class="n">v</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">;</span>
-            <span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="n">k</span> <span class="o">&lt;</span> <span class="n">v</span><span class="o">-&gt;</span><span class="n">lsize</span><span class="p">())</span> <span class="n">v</span> <span class="o">=</span> <span class="n">v</span><span class="o">-&gt;</span><span class="n">child</span><span class="p">[</span><span class="n">L</span><span class="p">];</span>
-            <span class="k">else</span> <span class="n">k</span> <span class="o">-=</span> <span class="n">v</span><span class="o">-&gt;</span><span class="n">lsize</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">v</span><span class="o">-&gt;</span><span class="n">child</span><span class="p">[</span><span class="n">R</span><span class="p">];</span>
-        <span class="p">}</span>
-        <span class="k">return</span> <span class="n">v</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="kt">void</span> <span class="n">insert</span><span class="p">(</span><span class="k">const</span> <span class="n">Item</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">){</span>
-        <span class="n">insert</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="k">new</span> <span class="n">Node</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
-    <span class="p">}</span>
-
-    <span class="kt">void</span> <span class="n">insert</span><span class="p">(</span><span class="n">Node</span> <span class="o">*</span><span class="n">node</span><span class="p">){</span>
-        <span class="n">insert</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">node</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="kt">int</span> <span class="n">size</span><span class="p">(){</span>
-        <span class="k">return</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="kt">void</span> <span class="n">fetch</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">*&gt;</span> <span class="o">&amp;</span><span class="n">nodes</span><span class="p">){</span>
-        <span class="n">nodes</span><span class="p">.</span><span class="n">reserve</span><span class="p">(</span><span class="n">size</span><span class="p">());</span>
-
-        <span class="n">std</span><span class="o">::</span><span class="n">queue</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">*&gt;</span> <span class="n">Q</span><span class="p">;</span>
-        <span class="n">Q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
-        <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">Q</span><span class="p">.</span><span class="n">empty</span><span class="p">()){</span>
-            <span class="n">Node</span> <span class="o">*</span><span class="n">v</span> <span class="o">=</span> <span class="n">Q</span><span class="p">.</span><span class="n">front</span><span class="p">();</span> <span class="n">Q</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
-            <span class="n">nodes</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
-            <span class="k">if</span><span class="p">(</span><span class="n">v</span><span class="o">-&gt;</span><span class="n">child</span><span class="p">[</span><span class="n">L</span><span class="p">])</span> <span class="n">Q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">v</span><span class="o">-&gt;</span><span class="n">child</span><span class="p">[</span><span class="n">L</span><span class="p">]);</span>
-            <span class="k">if</span><span class="p">(</span><span class="n">v</span><span class="o">-&gt;</span><span class="n">child</span><span class="p">[</span><span class="n">R</span><span class="p">])</span> <span class="n">Q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">v</span><span class="o">-&gt;</span><span class="n">child</span><span class="p">[</span><span class="n">R</span><span class="p">]);</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="kt">void</span> <span class="n">mergeWith</span><span class="p">(</span><span class="n">Treap</span> <span class="o">*</span><span class="n">T</span><span class="p">){</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">*&gt;</span> <span class="n">nodes</span><span class="p">;</span>
-        <span class="n">T</span><span class="o">-&gt;</span><span class="n">fetch</span><span class="p">(</span><span class="n">nodes</span><span class="p">);</span>
-        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nodes</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
-            <span class="n">insert</span><span class="p">(</span><span class="n">nodes</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">};</span>
-
-<span class="k">const</span> <span class="kt">int</span> <span class="n">MAXN</span> <span class="o">=</span> <span class="mi">100000</span><span class="p">;</span>
-
-<span class="k">struct</span> <span class="n">NeverLand</span><span class="p">{</span>
-    <span class="k">struct</span> <span class="n">Info</span><span class="p">{</span>
-        <span class="kt">int</span> <span class="n">id</span><span class="p">,</span> <span class="n">value</span><span class="p">;</span>
-
-        <span class="n">Info</span><span class="p">()</span> <span class="p">{}</span>
-        <span class="n">Info</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="n">id</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">value</span><span class="p">)</span> <span class="o">:</span> <span class="n">id</span><span class="p">(</span><span class="n">id</span><span class="p">),</span> <span class="n">value</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="p">{}</span>
-
-        <span class="kt">bool</span> <span class="k">operator</span><span class="o">&lt;</span><span class="p">(</span><span class="k">const</span> <span class="n">Info</span> <span class="o">&amp;</span><span class="n">another</span><span class="p">)</span> <span class="k">const</span><span class="p">{</span>
-            <span class="k">return</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="n">another</span><span class="p">.</span><span class="n">value</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">};</span>
-
-    <span class="k">struct</span> <span class="n">Land</span><span class="p">{</span>
-        <span class="n">Land</span> <span class="o">*</span><span class="n">cheif</span><span class="p">;</span>
-
-        <span class="n">Treap</span><span class="o">&lt;</span><span class="n">Info</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">T</span><span class="p">;</span>
-
-        <span class="n">Land</span><span class="p">()</span> <span class="o">:</span> <span class="n">cheif</span><span class="p">(</span><span class="k">this</span><span class="p">),</span> <span class="n">T</span><span class="p">(</span><span class="k">new</span> <span class="n">Treap</span><span class="o">&lt;</span><span class="n">Info</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">{}</span>
-
-        <span class="o">~</span><span class="n">Land</span><span class="p">(){</span>
-            <span class="k">delete</span> <span class="n">T</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span> <span class="n">lands</span><span class="p">[</span><span class="n">MAXN</span><span class="p">];</span>
-
-    <span class="kt">void</span> <span class="nf">build</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">n</span><span class="p">){</span>
-        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
-            <span class="n">Land</span> <span class="o">*</span><span class="n">v</span> <span class="o">=</span> <span class="n">lands</span> <span class="o">+</span> <span class="n">i</span><span class="p">;</span>
-
-            <span class="p">(</span><span class="n">lands</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">insert</span><span class="p">(</span><span class="n">Info</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]));</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="n">Land</span> <span class="o">*</span><span class="nf">find</span><span class="p">(</span><span class="n">Land</span> <span class="o">*</span><span class="n">v</span><span class="p">){</span>
-        <span class="k">return</span> <span class="n">v</span> <span class="o">==</span> <span class="n">v</span><span class="o">-&gt;</span><span class="n">cheif</span> <span class="o">?</span> <span class="nl">v</span> <span class="p">:</span> <span class="n">v</span><span class="o">-&gt;</span><span class="n">cheif</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">v</span><span class="o">-&gt;</span><span class="n">cheif</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="kt">void</span> <span class="nf">merge</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">){</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
-
-        <span class="n">Land</span> <span class="o">*</span><span class="n">x</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">lands</span> <span class="o">+</span> <span class="n">a</span><span class="p">),</span> <span class="o">*</span><span class="n">y</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">lands</span> <span class="o">+</span> <span class="n">b</span><span class="p">);</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">y</span><span class="o">-&gt;</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">())</span> <span class="n">std</span><span class="o">::</span><span class="n">swap</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">x</span> <span class="o">!=</span> <span class="n">y</span><span class="p">){</span>
-            <span class="n">y</span><span class="o">-&gt;</span><span class="n">cheif</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
-
-            <span class="n">x</span><span class="o">-&gt;</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">mergeWith</span><span class="p">(</span><span class="n">y</span><span class="o">-&gt;</span><span class="n">T</span><span class="p">);</span>
-            <span class="n">y</span><span class="o">-&gt;</span><span class="n">T</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="kt">int</span> <span class="nf">query</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">){</span>
-        <span class="n">Treap</span><span class="o">&lt;</span><span class="n">Info</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">T</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">lands</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">T</span><span class="p">;</span>
-
-        <span class="k">if</span><span class="p">(</span><span class="n">k</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">k</span> <span class="o">&gt;=</span> <span class="n">T</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">())</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-        <span class="k">else</span> <span class="k">return</span> <span class="n">T</span><span class="o">-&gt;</span><span class="n">select</span><span class="p">(</span><span class="n">k</span><span class="p">).</span><span class="n">id</span><span class="p">;</span>
-    <span class="p">}</span>
-
-<span class="p">}</span> <span class="n">neverLand</span><span class="p">;</span>
-
-<span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="n">MAXN</span><span class="p">];</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
-    <span class="n">freopen</span><span class="p">(</span><span class="s">&quot;data.in&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">,</span> <span class="n">stdin</span><span class="p">),</span> <span class="n">freopen</span><span class="p">(</span><span class="s">&quot;bzoj_2733.out&quot;</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">,</span> <span class="n">stdout</span><span class="p">);</span>
-
-    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">;</span>
-
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">m</span><span class="p">);</span>
-    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
-        <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">i</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="n">neverLand</span><span class="p">.</span><span class="n">build</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
-    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
-        <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
-        <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>
-        <span class="n">a</span><span class="o">--</span><span class="p">,</span> <span class="n">b</span><span class="o">--</span><span class="p">;</span>
-
-        <span class="n">neverLand</span><span class="p">.</span><span class="n">merge</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="kt">int</span> <span class="n">q</span><span class="p">;</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">q</span><span class="p">);</span>
-    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">q</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
-        <span class="kt">char</span> <span class="n">opt</span><span class="p">;</span>
-        <span class="k">do</span> <span class="n">opt</span> <span class="o">=</span> <span class="n">getchar</span><span class="p">();</span> <span class="k">while</span><span class="p">(</span><span class="n">opt</span> <span class="o">!=</span> <span class="sc">&#39;Q&#39;</span> <span class="o">&amp;&amp;</span> <span class="n">opt</span> <span class="o">!=</span> <span class="sc">&#39;B&#39;</span><span class="p">);</span>
-
-        <span class="k">if</span><span class="p">(</span><span class="n">opt</span> <span class="o">==</span> <span class="sc">&#39;Q&#39;</span><span class="p">){</span>
-            <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
-            <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">k</span><span class="p">);</span>
-            <span class="n">x</span><span class="o">--</span><span class="p">,</span> <span class="n">k</span><span class="o">--</span><span class="p">;</span>
-
-            <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="n">neverLand</span><span class="p">.</span><span class="n">query</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>
-
-            <span class="k">if</span><span class="p">(</span><span class="n">ans</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">ans</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
-            <span class="k">else</span> <span class="n">puts</span><span class="p">(</span><span class="s">&quot;-1&quot;</span><span class="p">);</span>
-
-        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">opt</span> <span class="o">==</span> <span class="sc">&#39;B&#39;</span><span class="p">){</span>
-            <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
-            <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>
-            <span class="n">a</span><span class="o">--</span><span class="p">,</span> <span class="n">b</span><span class="o">--</span><span class="p">;</span>
-
-            <span class="n">neverLand</span><span class="p">.</span><span class="n">merge</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="k">throw</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="n">fclose</span><span class="p">(</span><span class="n">stdin</span><span class="p">),</span> <span class="n">fclose</span><span class="p">(</span><span class="n">stdout</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
 
         </div>
         
         <footer class = "ArticleFooter">
-            <a href = "detail/5/index.html" class = "ReadMore"> Read More </a>
+            <a href = "/detail/5/" class = "ReadMore"> Read More </a>
         </footer>
     </article>
     
@@ -366,7 +173,7 @@
         <header class = "ArticleHeader">
             <div class = "Title">
                 <h1>
-                    <a href = "detail/4/index.html">
+                    <a href = "/detail/4/">
                         Article for testing markdown
                     </a>
                 </h1>
@@ -424,7 +231,7 @@ $</p>
         </div>
         
         <footer class = "ArticleFooter">
-            <a href = "detail/4/index.html" class = "ReadMore"> Read More </a>
+            <a href = "/detail/4/" class = "ReadMore"> Read More </a>
         </footer>
     </article>
     
@@ -432,7 +239,7 @@ $</p>
         <header class = "ArticleHeader">
             <div class = "Title">
                 <h1>
-                    <a href = "detail/1/index.html">
+                    <a href = "/detail/1/">
                         Hello, Django
                     </a>
                 </h1>
@@ -459,7 +266,7 @@ $</p>
         </div>
         
         <footer class = "ArticleFooter">
-            <a href = "detail/1/index.html" class = "ReadMore"> Read More </a>
+            <a href = "/detail/1/" class = "ReadMore"> Read More </a>
         </footer>
     </article>
     
@@ -475,15 +282,15 @@ $</p>
 
         
         <div class = "EachTag">
-            <a href = "tag/Test/index.html"> Test </a>
+            <a href = "/tag/Test/"> Test </a>
         </div>
         
         <div class = "EachTag">
-            <a href = "tag/Starting/index.html"> Starting </a>
+            <a href = "/tag/Starting/"> Starting </a>
         </div>
         
         <div class = "EachTag">
-            <a href = "tag/OI/index.html"> OI </a>
+            <a href = "/tag/OI/"> OI </a>
         </div>
         
     </div>

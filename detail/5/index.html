@@ -9,17 +9,24 @@
     
     <title> Hellc </title>
     
-    <link rel = "stylesheet" type = "text/css" href = "http://0.0.0.0:8000/detail/5/doNotExist.css" /> <!-- I don't kown why the first css will be lost, but I can only add a empty one. -->
-    <link rel = "stylesheet" type = "text/css" href = "../../static/css/parts/header.css" />
-    <link rel = "stylesheet" type = "text/css" href = "../../static/css/parts/sidebar.css" />
-    <link rel = "stylesheet" type = "text/css" href = "../../static/css/parts/main.css" />
-    <link rel = "stylesheet" type = "text/css" href = "../../static/css/parts/footer.css" />
+    <link rel = "stylesheet" type = "text/css" href = "doNotExist.css" /> <!-- I don't kown why the first css will be lost, but I can only add a empty one. -->
+    <link rel = "stylesheet" type = "text/css" href = "/static/css/parts/header.css" />
+    <link rel = "stylesheet" type = "text/css" href = "/static/css/parts/sidebar.css" />
+    <link rel = "stylesheet" type = "text/css" href = "/static/css/parts/main.css" />
+    <link rel = "stylesheet" type = "text/css" href = "/static/css/parts/footer.css" />
 
     
 
-<link rel = "stylesheet" type = "text/css" href = "../../static/css/article-detail.css" />
-<link rel = "stylesheet" type = "text/css" href = "../../static/css/parts/markdown.css" />
-<link rel = "stylesheet" type = "text/css" href = "../../static/css/parts/highlight.css" />
+<link rel = "stylesheet" type = "text/css" href = "/static/css/article-detail.css" />
+<link rel = "stylesheet" type = "text/css" href = "/static/css/parts/markdown.css" />
+<link rel = "stylesheet" type = "text/css" href = "/static/css/parts/highlight.css" />
+
+
+    
+    
+
+<script type = "text/javascript" src = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type = "text/x-mathjax-config"> MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
 
 
 </head>
@@ -32,7 +39,7 @@
 
     <div id = "BlogHeader">
         <div id = "BlogImgLogo">
-            <img src = "../../static/img/HellcLogo.jpg" alt = "Hellc"/>
+            <img src = "/static/img/HellcLogo.jpg" alt = "Hellc"/>
         </div>
         
         <div id = "BlogTextLogo">
@@ -50,23 +57,23 @@
     <nav id = "BlogNav">
         <ul>
             <li>
-                <a href = "../../index.html" class = "NavLink"> Home </a>
+                <a href = "/" class = "NavLink"> Home </a>
             </li>
 
             <li>
-                <a href = "index.html#" class = "NavLink"> Tags </a>
+                <a href = "#" class = "NavLink"> Tags </a>
             </li>
 
             <li> 
-                <a href = "index.html#" class = "NavLink"> Archive </a>
+                <a href = "#" class = "NavLink"> Archive </a>
             </li>
 
             <li>
-                <a href = "index.html#" class = "NavLink"> Friends </a>
+                <a href = "#" class = "NavLink"> Friends </a>
             </li>
 
             <li>
-                <a href = "index.html#" class = "NavLink"> About </a>
+                <a href = "#" class = "NavLink"> About </a>
             </li>
         </ul>
     </nav>
@@ -81,7 +88,7 @@
     
     <header class = "ArticleHeader">
         <div class = "Title">
-            <a href = "index.html#">
+            <a href = "#">
                 <h2> 永无乡 - 平衡树 + 并查集 + 启发式合并 </h2>
             </a>
         </div>
@@ -345,7 +352,7 @@
             Tags: 
             
             <span class = "EachTag">
-                <a href = "../../tag/OI/index.html"> OI </a>
+                <a href = "/tag/OI/"> OI </a>
             </span>
             
         </div>
@@ -362,15 +369,15 @@
 
         
         <div class = "EachTag">
-            <a href = "../../tag/Test/index.html"> Test </a>
+            <a href = "/tag/Test/"> Test </a>
         </div>
         
         <div class = "EachTag">
-            <a href = "../../tag/Starting/index.html"> Starting </a>
+            <a href = "/tag/Starting/"> Starting </a>
         </div>
         
         <div class = "EachTag">
-            <a href = "../../tag/OI/index.html"> OI </a>
+            <a href = "/tag/OI/"> OI </a>
         </div>
         
     </div>

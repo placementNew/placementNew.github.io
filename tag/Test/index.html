@@ -9,15 +9,17 @@
     
     <title> Hellc </title>
     
-    <link rel = "stylesheet" type = "text/css" href = "http://0.0.0.0:8000/tag/Test/doNotExist.css" /> <!-- I don't kown why the first css will be lost, but I can only add a empty one. -->
-    <link rel = "stylesheet" type = "text/css" href = "../../static/css/parts/header.css" />
-    <link rel = "stylesheet" type = "text/css" href = "../../static/css/parts/sidebar.css" />
-    <link rel = "stylesheet" type = "text/css" href = "../../static/css/parts/main.css" />
-    <link rel = "stylesheet" type = "text/css" href = "../../static/css/parts/footer.css" />
+    <link rel = "stylesheet" type = "text/css" href = "doNotExist.css" /> <!-- I don't kown why the first css will be lost, but I can only add a empty one. -->
+    <link rel = "stylesheet" type = "text/css" href = "/static/css/parts/header.css" />
+    <link rel = "stylesheet" type = "text/css" href = "/static/css/parts/sidebar.css" />
+    <link rel = "stylesheet" type = "text/css" href = "/static/css/parts/main.css" />
+    <link rel = "stylesheet" type = "text/css" href = "/static/css/parts/footer.css" />
 
     
-    <link rel = "stylesheet" type = "text/css" href = "../../static/css/article-list-of-oneTag.css" />
+    <link rel = "stylesheet" type = "text/css" href = "/static/css/article-list-of-oneTag.css" />
 
+    
+     
 </head>
 
 <body>
@@ -28,7 +30,7 @@
 
     <div id = "BlogHeader">
         <div id = "BlogImgLogo">
-            <img src = "../../static/img/HellcLogo.jpg" alt = "Hellc"/>
+            <img src = "/static/img/HellcLogo.jpg" alt = "Hellc"/>
         </div>
         
         <div id = "BlogTextLogo">
@@ -46,23 +48,23 @@
     <nav id = "BlogNav">
         <ul>
             <li>
-                <a href = "../../index.html" class = "NavLink"> Home </a>
+                <a href = "/" class = "NavLink"> Home </a>
             </li>
 
             <li>
-                <a href = "index.html#" class = "NavLink"> Tags </a>
+                <a href = "#" class = "NavLink"> Tags </a>
             </li>
 
             <li> 
-                <a href = "index.html#" class = "NavLink"> Archive </a>
+                <a href = "#" class = "NavLink"> Archive </a>
             </li>
 
             <li>
-                <a href = "index.html#" class = "NavLink"> Friends </a>
+                <a href = "#" class = "NavLink"> Friends </a>
             </li>
 
             <li>
-                <a href = "index.html#" class = "NavLink"> About </a>
+                <a href = "#" class = "NavLink"> About </a>
             </li>
         </ul>
     </nav>
@@ -77,13 +79,19 @@
 <div id = "Articles">
     
     <div class = "ArticleItem">
-        <a href = "../../detail/4/index.html" target = "_blank">
+        <a href = "/detail/6/" target = "_blank">
+            MathJax Test
+        </a>
+    </div>
+    
+    <div class = "ArticleItem">
+        <a href = "/detail/4/" target = "_blank">
             Article for testing markdown
         </a>
     </div>
     
     <div class = "ArticleItem">
-        <a href = "../../detail/1/index.html" target = "_blank">
+        <a href = "/detail/1/" target = "_blank">
             Hello, Django
         </a>
     </div>
@@ -100,15 +108,15 @@
 
         
         <div class = "EachTag">
-            <a href = "index.html"> Test </a>
+            <a href = "/tag/Test/"> Test </a>
         </div>
         
         <div class = "EachTag">
-            <a href = "../Starting/index.html"> Starting </a>
+            <a href = "/tag/Starting/"> Starting </a>
         </div>
         
         <div class = "EachTag">
-            <a href = "../OI/index.html"> OI </a>
+            <a href = "/tag/OI/"> OI </a>
         </div>
         
     </div>
